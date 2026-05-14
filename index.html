@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AKU Result Portal</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Merriweather:ital,wght@0,300..900;1,300..900&family=Sofia&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+            rel="stylesheet"
+        />
+        <link
+            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container" id="AKU">
+            <div class="head-title header noselect">
+                <div class="header-text">
+                    <h1>Aryabhatta Knowledge University</h1>
+                </div>
+                <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                    <i class="bx bx-moon"></i>
+                </button>
+            </div>
+
+            <div class="headSem noselect">Semester :</div>
+            <div class="semester noselect" id="semester-grid">
+                <div class="semester-item sem-btn" data-sem="1">I</div>
+                <div class="semester-item sem-btn" data-sem="2">II</div>
+                <div class="semester-item sem-btn" data-sem="3">III</div>
+                <div class="semester-item sem-btn" data-sem="4">IV</div>
+                <div class="semester-item sem-btn" data-sem="5">V</div>
+                <div class="semester-item sem-btn" data-sem="6">VI</div>
+                <div class="semester-item sem-btn" data-sem="7">VII</div>
+                <div class="semester-item sem-btn" data-sem="8">VIII</div>
+            </div>
+
+            <div class="searchBy noselect">
+                <div class="headSem">Search By :</div>
+                <div class="searchBy-item type-btn active" data-type="list">
+                    Student List
+                </div>
+                <div class="searchBy-item type-btn" data-type="reg">
+                    Registration Number
+                </div>
+            </div>
+
+            <div id="view-list" class="search__container">
+                <input
+                    type="text"
+                    id="list-search"
+                    class="search__input"
+                    placeholder="Search Name or Roll..."
+                />
+
+                <div class="data-card" id="student-list-container">
+                    <div class="table-header noselect">
+                        <div class="table-cell">Roll No.</div>
+                        <div class="table-cell stName">Name</div>
+                        <div class="table-cell">Reg No.</div>
+                    </div>
+                    <div class="table-body" id="student-list-body"></div>
+                </div>
+                <div class="pagination noselect" id="pagination-controls"></div>
+            </div>
+
+            <div
+                id="view-reg"
+                class="search__container"
+                style="display: none; text-align: center"
+            >
+                <input
+                    type="number"
+                    id="reg-input"
+                    class="search__input"
+                    placeholder="Enter Registration Number"
+                    style="margin-bottom: 15px"
+                />
+                <button
+                    class="semester-item active noselect"
+                    id="btn-search-reg"
+                    style="
+                        padding: 10px 25px;
+                        border: none;
+                        font-weight: bold;
+                        width: auto;
+                        display: inline-block;
+                    "
+                >
+                    Get Result
+                </button>
+            </div>
+
+            <div
+                class="result-wrapper"
+                id="result-wrapper"
+                style="display: none; margin-top: 20px"
+            >
+                <div class="data-card">
+                    <div class="card-header noselect">
+                        <span class="material-icons-round">person</span> STUDENT
+                        DETAILS
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-row">
+                            <span class="info-label">Student Name</span
+                            ><span class="info-val" id="res-name"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Registration No</span
+                            ><span class="info-val" id="res-reg"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Course</span
+                            ><span class="info-val" id="res-course"></span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">College</span
+                            ><span class="info-val" id="res-college"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card" id="theory-container">
+                    <div class="card-header noselect">
+                        <span class="material-icons-round">menu_book</span>
+                        THEORY
+                    </div>
+                    <div class="table-header noselect" style="border-radius: 0">
+                        <div class="table-cell stName">Subject</div>
+                        <div class="table-cell">ESE</div>
+                        <div class="table-cell">IA</div>
+                        <div class="table-cell">Total</div>
+                        <div class="table-cell">Grd</div>
+                    </div>
+                    <div class="table-body" id="theory-body"></div>
+                </div>
+
+                <div class="data-card" id="practical-container">
+                    <div class="card-header noselect">
+                        <span class="material-icons-round">science</span>
+                        PRACTICAL
+                    </div>
+                    <div class="table-header noselect" style="border-radius: 0">
+                        <div class="table-cell stName">Subject</div>
+                        <div class="table-cell">ESE</div>
+                        <div class="table-cell">IA</div>
+                        <div class="table-cell">Total</div>
+                        <div class="table-cell">Grd</div>
+                    </div>
+                    <div class="table-body" id="practical-body"></div>
+                </div>
+
+                <div class="result-footer noselect">
+                    <div id="res-remarks"></div>
+                    <button
+                        class="semester-item active"
+                        id="btn-download-pdf"
+                        style="
+                            padding: 8px 15px;
+                            border: none;
+                            font-weight: bold;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        "
+                    >
+                        Download PDF <i class="bx bxs-file-pdf"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+        <script src="script.js"></script>
+        <script src="pdfGenerator.js"></script>
+    </body>
+</html>
