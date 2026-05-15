@@ -9,12 +9,9 @@
     --background: #dadce0;
     --tab: #e8eaed;
     --lightTab: #f1f3f4;
-    --mainhead: #34495e;
-    --mainhead: #222f3e;
-    --headText: #fff;
     --tableHead: #1b264f;
     --tableHead: #2d3436;
-    --tableHead: #34495e;
+    --tableHead: #222f3e;
     --logout: #d63031;
     --smooth: 0.2s;
     --tittle: #587b7f;
@@ -30,7 +27,6 @@ body.dark {
     --background: #0b0e10;
     --icon: #007aff;
     --icon: #00b894;
-    --headText: #00b894;
     --lightTab: #202124;
 }
 
@@ -56,19 +52,10 @@ body {
     user-select: none;
 }
 
-/* Simple Top Nav */
-.top-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
 /* Header */
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
@@ -86,10 +73,6 @@ body {
     font-size: 24px;
     cursor: pointer;
     transition: transform var(--smooth);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
 }
 .icon-btn:hover {
     transform: scale(1.1);
@@ -129,7 +112,7 @@ body {
     background-color: var(--icon);
     color: var(--button);
     border-color: var(--icon);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(60, 145, 230, 0.3);
 }
 
 .searchBy {
@@ -163,7 +146,6 @@ body {
     color: var(--button);
     border-color: var(--icon);
     box-shadow: 0 4px 10px rgba(60, 145, 230, 0.3);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Refined Search Bar */
@@ -213,10 +195,10 @@ body {
 }
 .card-header {
     padding: 9px;
-    background: var(--mainhead);
+    background: var(--lightTab);
     font-size: 11px;
     font-weight: 800;
-    color: var(--headText);
+    color: var(--icon);
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -380,7 +362,7 @@ body {
     color: var(--text) !important;
     font-family: var(--family) !important;
     font-size: 10px !important;
-    margin-left: 10px;
+    margin-left: 10px; 
     padding-top: 0 !important;
     padding-bottom: 10px !important;
 }
